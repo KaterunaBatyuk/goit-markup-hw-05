@@ -21,7 +21,7 @@
     <!--Хедер-->
 
     <header>
-      <div class="container page">
+      <div class="container page box-header">
         <nav class="main-nav">
           <a class="logo" href="./index.html"
             >Web<span class="logo-s">Studio</span>
@@ -65,7 +65,9 @@
             Эффективные решения <br />
             для вашего бизнеса
           </h1>
-          <button class="button-primary" type="button">Заказать услугу</button>
+          <button data-modal-open class="button-primary" type="button">
+            Заказать услугу
+          </button>
         </div>
       </section>
 
@@ -137,12 +139,21 @@
           <ul class="section-list">
             <li class="section-img">
               <img src="./img/img.jpg" alt="Верстка" width="370" />
+              <div class="activity-box">
+                <p class="paragraph-img">Десктопные приложения</p>
+              </div>
             </li>
             <li class="section-img">
               <img src="./img/img1.jpg" alt="Дизайн" width="370" />
+              <div class="activity-box">
+                <p class="paragraph-img">Мобильные приложения</p>
+              </div>
             </li>
             <li class="section-img">
               <img src="./img/img2.jpg" alt="Оформление" width="370" />
+              <div class="activity-box">
+                <p class="paragraph-img">Дизайнерские решения</p>
+              </div>
             </li>
           </ul>
         </div>
@@ -416,5 +427,33 @@
         </div>
       </div>
     </footer>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit
+          laborum ipsa accusamus earum expedita, quam architecto nobis officia
+          amet repellat aliquam aliquid optio vel at ut natus, fugit consectetur
+          porro debitis voluptatibus asperiores dolor. Optio, similique
+          veritatis. Earum ipsum, eos recusandae amet cumque commodi, quia
+          temporibus aspernatur fuga cum eum.
+        </p>
+        <button data-modal-close>Закрыть</button>
+      </div>
+    </div>
+
+    <script>
+      const refs = {
+        openModalBtn: document.querySelector('[data-modal-open]'),
+        closeModalBtn: document.querySelector('[data-modal-close]'),
+        modal: document.querySelector('[data-modal]'),
+      };
+
+      refs.openModalBtn.addEventListener('click', toggleModal);
+      refs.closeModalBtn.addEventListener('click', toggleModal);
+
+      function toggleModal() {
+        refs.modal.classList.toggle('is-hidden');
+      }
+    </script>
   </body>
 </html>
